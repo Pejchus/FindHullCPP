@@ -31,9 +31,8 @@ void file(double  **points){
 
 
 double get_random_double(int min,int max) {
-  static std::mt19937 mt{ std::random_device{}() };
-  static std::uniform_real_distribution<> dist(min, max);
-  return dist(mt);
+  double f = (double)rand() / RAND_MAX;
+  return min + f * (max - min);
 }
 
 double ** generate(){
@@ -48,6 +47,8 @@ double ** generate(){
   return points;
 
 }
+
+
 
 int main () {
   double ** points = generate();
